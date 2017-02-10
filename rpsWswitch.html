@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+
+<p id="demo"></p>
+
+<div id="game">
+Press "r" or "p" or "s" to play!
+</div>
+
+<script>
+
+    var options = ["r", "p", "s"];
+   
+   var wins = 0;
+   var loses = 0;
+   var ties = 0;
+   
+   document.onkeyup = function(event){
+  
+
+    var text;    
+   var userInput = event.key;
+   var computerInput = options[Math.floor(Math.random() * options.length)];
+   
+
+   switch(userInput) {
+   
+       case "r":
+           if (computerInput === "s") {
+           wins++;
+           } else if (computerInput === "r") {
+           ties++;
+           } else if (computerInput === "p") {
+           loses++;
+           }
+       break;
+       
+       case "s":
+       if (computerInput === "p") {
+           wins++;
+           } else if (computerInput === "s") {
+           ties++;
+           } else if (computerInput === "r") {
+           loses++;
+           }
+       break;
+       
+       case "p":
+         if (computerInput === "r") {
+             wins++;
+             } else if (computerInput === "p") {
+             ties++;
+             } else if (computerInput === "s") {
+             loses++;
+             }
+       break;
+       
+       default:
+       text = "Wrong key...";
+
+     }
+       
+       var html = '<p> Wins ' + wins + '</p>' + '<p> Loses ' + loses + '</p>' + '<p>Ties ' + ties + '</p>';
+       
+       document.getElementById("game").innerHTML = html;
+   }
+   document.getElementById("demo").innerHTML = text;
+   
+
+</script>
+
+</body>
+</html>
